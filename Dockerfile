@@ -29,12 +29,12 @@ RUN \
 RUN unzip /tmp/go-agent-20.4.0-11749.zip -d /
 RUN mv /go-agent-20.4.0 /go-agent && chown -R ${UID}:0 /go-agent && chmod -R g=u /go-agent
 
-FROM fedora:30
+FROM fedora:32
 MAINTAINER ThoughtWorks, Inc. <support@thoughtworks.com>
 
 LABEL gocd.version="20.4.0" \
-  description="GoCD agent based on fedora version 30" \
-  maintainer="ThoughtWorks, Inc. <support@thoughtworks.com>" \
+  description="GoCD agent based on fedora version 32" \
+  maintainer="Lyuma <xn.lyuma@gmail.com>" \
   url="https://www.gocd.org" \
   gocd.full.version="20.4.0-11749" \
   gocd.git.sha="5553066d29d315951efa5ead0c087374df6338b9"
