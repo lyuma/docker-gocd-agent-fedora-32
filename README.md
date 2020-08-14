@@ -19,21 +19,21 @@ docker run -d -e GO_SERVER_URL=... lyuma/gocd-agent-fedora-32:v20.6.0
 
 This will start the GoCD agent and connect it the GoCD server specified by `GO_SERVER_URL`.
 
-> **Note**: The `GO_SERVER_URL` must be an HTTPS url and end with `/go`, for e.g. `https://ip.add.re.ss:8154/go`
+> **Note**: The `GO_SERVER_URL` must be an HTTPS url and end with `/go`, for e.g. `http://ip.add.re.ss:8153/go`
 
 ## Usage with docker GoCD server
 
 If you have a [gocd-server container](https://hub.docker.com/r/gocd/gocd-server/) running and it's named `angry_feynman`, you can connect a gocd-agent container to it by doing:
 
 ```
-docker run -d -e GO_SERVER_URL=https://$(docker inspect --format='{{(index (index .NetworkSettings.IPAddress))}}' angry_feynman):8154/go lyuma/gocd-agent-fedora-32:v20.6.0
+docker run -d -e GO_SERVER_URL=http://$(docker inspect --format='{{(index (index .NetworkSettings.IPAddress))}}' angry_feynman):8153/go lyuma/gocd-agent-fedora-32:v20.6.0
 ```
 OR
 
 If the docker container running the gocd server has ports mapped to the host,
 
 ```
-docker run -d -e GO_SERVER_URL=https://<ip_of_host_machine>:$(docker inspect --format='{{(index (index .NetworkSettings.Ports "8154/tcp") 0).HostPort}}' angry_feynman)/go lyuma/gocd-agent-fedora-32:v20.6.0
+docker run -d -e GO_SERVER_URL=http://<ip_of_host_machine>:$(docker inspect --format='{{(index (index .NetworkSettings.Ports "8153/tcp") 0).HostPort}}' angry_feynman)/go lyuma/gocd-agent-fedora-32:v20.6.0
 ```
 
 # Available configuration options
